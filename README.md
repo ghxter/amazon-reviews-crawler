@@ -2,6 +2,14 @@
 
 Crawls product reviews from Amazon.
 
+## Installation
+
+Via [npm](https://www.npmjs.com/):
+
+```
+npm install amazon-reviews-crawler
+```
+
 ## Usage
 
 ### Load the module
