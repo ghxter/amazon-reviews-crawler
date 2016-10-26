@@ -37,14 +37,13 @@ function crawlReview(asin, opt, cb){
 
 	const horseman = new Horseman()
 
-	// Get latest reviewed ID
-
+	// Crawl link
 	horseman
 		.open(opt.page.replace('{{asin}}', asin))
 		.status()
 		.then(status => {
 			if(Number(status) >= 400){
-				cb(false, `Page failed with status: ${status}`)
+				cb(`Page failed with status: ${status}`)
 			}
 		})
 		.evaluate(function(opt){
@@ -71,7 +70,7 @@ function crawlReview(asin, opt, cb){
 					id = id[id.length - 2]
 				}
 				else{
-					throw 'No link/ID found in reviews'
+					cb('No link/ID found in reviews')
 				}
 
 				// If this is the most recent, stop crawling page
@@ -124,18 +123,13 @@ function crawlReview(asin, opt, cb){
 		}, opt)
 		.then(content => {
 			// Callback with review content
-			cb(content)
+			cb(false, content)
 		})
 		.catch(err => {
-			cb(false, err)
+			cb(err)
 		})
 		.close()
 }
-
-crawlReview('0062472100', (err, content) => {
-	if(err) throw err
-	console.log(content)
-})
 
 
 module.exports = crawlReview
