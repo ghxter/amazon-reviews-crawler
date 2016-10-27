@@ -3,6 +3,7 @@ const Horseman = require('node-horseman')
 
 const defaultOptions = {
 	page: 'https://www.amazon.com/product-reviews/{{asin}}',
+	userAgent: 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0',
 	elements: {
 		// Searches whole page
 		productTitle: '.product-title',
@@ -39,7 +40,7 @@ function crawlReview(asin, opt, cb){
 
 	// Crawl link
 	horseman
-		.userAgent('Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0')
+		.userAgent(opt.userAgent)
 		.open(pageLink)
 		.status()
 		.then(status => {

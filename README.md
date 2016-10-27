@@ -50,13 +50,14 @@ Example of a return:
 
 ## Options
 
-Options can also be provided to change the review page or elements being crawled.
+Options can also be provided to change the user agent string, review page, or elements being crawled.
 
 Example:
 
 ```
 reviewsCrawler('0062472100', {
 	page: 'https://www.amazon.com/product-reviews/{{asin}}',
+	userAgent: 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0',
 	elements: {
 	
 		// Searches whole page
