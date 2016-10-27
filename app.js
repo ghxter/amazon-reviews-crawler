@@ -1,5 +1,4 @@
 'use strict'
-
 const Horseman = require('node-horseman')
 
 const defaultOptions = {
@@ -36,14 +35,16 @@ function crawlReview(asin, opt, cb){
 	}
 
 	const horseman = new Horseman()
+	const pageLink = opt.page.replace('{{asin}}', asin)
 
 	// Crawl link
 	horseman
-		.open(opt.page.replace('{{asin}}', asin))
+		.userAgent('Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0')
+		.open(pageLink)
 		.status()
 		.then(status => {
 			if(Number(status) >= 400){
-				cb(`Page failed with status: ${status}`)
+				cb(`Page ${pageLink} failed with status: ${status}`)
 			}
 		})
 		.evaluate(function(opt){
