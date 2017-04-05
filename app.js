@@ -2,7 +2,7 @@
 const Horseman = require('node-horseman')
 
 const defaultOptions = {
-	page: 'https://www.amazon.com/product-reviews/{{asin}}',
+	page: 'https://www.amazon.com/product-reviews/{{asin}}/ref=cm_cr_arp_d_viewopt_srt?reviewerType=all_reviews&pageNumber=1&sortBy=recent',
 	userAgent: 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:27.0) Gecko/20100101 Firefox/27.0',
 	elements: {
 		// Searches whole page
