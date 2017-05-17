@@ -1,7 +1,7 @@
 'use strict'
 const reviewsCrawler = require('./app.js')
 
-reviewsCrawler('0062472100', function(err, reviews){
+reviewsCrawler('B06Y2Z7HK4', function(err, reviews){
 	if(err) throw err
 	console.log(reviews)
 })

@@ -11,6 +11,9 @@ npm install amazon-reviews-crawler
 ```
 
 ## Usage
+```
+node reviews.js
+```
 
 ### Load the module
 
